@@ -1,13 +1,17 @@
 # Ember Prerender #
 
-This project allows [Ember.js](http://emberjs.com/) applications to
-be prerendered on the server using [Node.js](http://nodejs.org/)
-and [JSDOM](https://github.com/tmpvar/jsdom).
+This project allows [Ember.js](http://emberjs.com/) (and likely other)
+web applications to be prerendered on the server using [Node.js](http://nodejs.org/)
+and either [PhantomJS](http://phantomjs.org/) or
+[JSDOM](https://github.com/tmpvar/jsdom) based on your preference.
 
 Based loosely off of the [Prerender
 Service](https://github.com/collectiveip/prerender) by Todd Hooper.
-Prerender plugins should be compatible without many modifications
-required.
+
+The goal of this project is to couple server-side rendering more closely
+with a specific web app. By utilizing a long-lived instance of the app
+rather than restarting it upon every request, rendering times can be 
+reduced.
 
 ## Usage ##
 
@@ -94,7 +98,7 @@ server {
 
 The MIT License (MIT)
 
-Copyright (c) 2013 Brian Stanback
+Copyright (c) 2014 ZipfWorks Inc
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
