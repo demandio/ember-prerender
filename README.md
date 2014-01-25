@@ -5,13 +5,13 @@ web applications to be prerendered on the server using [Node.js](http://nodejs.o
 and either [PhantomJS](http://phantomjs.org/) or
 [JSDOM](https://github.com/tmpvar/jsdom) based on your preference.
 
-Based loosely off of the [Prerender
-Service](https://github.com/collectiveip/prerender) by Todd Hooper.
-
-The goal of this project is to couple server-side rendering more closely
+The goal of the project is to couple server-side rendering more closely
 with a specific web app. By utilizing a long-lived instance of the app
 rather than restarting it upon every request, rendering times can be 
 reduced.
+
+The concept and plugin code is based loosely off of the [Prerender
+Service](https://github.com/collectiveip/prerender) by Todd Hooper.
 
 ## Usage ##
 
@@ -98,7 +98,7 @@ server {
 
 The MIT License (MIT)
 
-Copyright (c) 2014 ZipfWorks Inc
+Copyright (c) 2013-2014 ZipfWorks Inc
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
