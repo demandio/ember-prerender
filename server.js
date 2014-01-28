@@ -9,7 +9,7 @@ var server = prerender({
   renderPoolMaxQueueSize: process.env.PRERENDER_RENDER_POOL_MAX_QUEUE_SIZE || 10000, // Maximum number of requests to queue
   renderPoolCheckInterval: process.env.PRERENDER_RENDER_CHECK_INTERVAL || 100, // Milliseconds to wait before checking the queue for new jobs
 
-  engine: process.env.PRERENDER_ENGINE || 'phantom', // Can be: jsdom, phantom
+  engine: process.env.PRERENDER_ENGINE || 'jsdom', // Can be: jsdom, phantom
   renderTimeout: process.env.PRERENDER_RENDER_TIMEOUT || 20000, // Milliseconds to wait before a render job is considered a failure
   maxRequestsPerRenderer: process.env.PRERENDER_REQUESTS_PER_RENDERER || 100, // Maximum number of requests a worker can handle before restarting it
 
