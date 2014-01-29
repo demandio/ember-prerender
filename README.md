@@ -30,7 +30,37 @@ Run the service:
 
     node server.js
 
-## Deployment / Middleware ##
+## Ember Prerender Event ##
+
+In order for ember-prerender to know that your pages are fully rendered,
+your application must emit the prerenderReady event whenever each of your routes
+finishes rendering their templates.
+
+Example configuration (CoffeeScript):
+
+Add to: app/initialize.coffee
+```
+App.prerenderEvent = document.createEvent('Event')
+App.prerenderEvent.initEvent('prerenderReady', true, true)
+document.addEventListener 'prerenderReady', ->
+  console.log('PRERENDER READY')
+```
+
+In your routes:
+```
+  renderTemplate: (controller, model) ->
+    @render()
+    handlers = @router.router.targetHandlerInfos
+    if @routeName == handlers[handlers.length-1].name
+      # this is the leaf route
+      Ember.run.scheduleOnce 'afterRender', @, ->
+        document.dispatchEvent(App.prerenderEvent)
+```
+Instead of adding this to each of your routes, you can extend Ember.Route to
+create a base route or use Ember.Route.reopen to change the default behavior.
+You may have to tweak when the event is dispatched based on your specific app.
+
+## Web Server Setup ##
 
 Once Ember Prerender is working with your project, you'll probably
 want to enable prerendering for certain user agents (e.g. web crawlers)
