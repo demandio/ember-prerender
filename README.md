@@ -60,6 +60,9 @@ Instead of adding this to each of your routes, you can extend Ember.Route to
 create a base route or use Ember.Route.reopen to change the default behavior.
 You may have to tweak when the event is dispatched based on your specific app.
 
+If your Ember app has special handling for pages being loaded with
+prerender, you can check for the window.isPrerender flag.
+
 ## Web Server Setup ##
 
 Once Ember Prerender is working with your project, you'll probably
