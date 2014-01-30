@@ -24,7 +24,7 @@ var server = prerender({
     format: process.env.PRERENDER_LOG_FORMAT || true // Add color formatting to logs
   },
 
-  plugins: process.env.PRERENDER_PLUGINS.split(/[, ]+/) || [
+  plugins: (process.env.PRERENDER_PLUGINS) ? process.env.PRERENDER_PLUGINS.split(/[, ]+/) : [
     'removeScriptTags',
     'httpHeaders',
     //'prepareEmail',
