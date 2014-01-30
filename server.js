@@ -16,7 +16,8 @@ var server = prerender({
   assetsPath: process.env.PRERENDER_ASSETS_PATH || '/home/your-ember-app/htdocs/', // Path to your app's files
   applicationPage: process.env.PRERENDER_APPLICATION_PAGE || 'index.html', // Main application page
   serveFiles: process.env.PRERENDER_SERVE_FILES || true, // Serve static files
-  filesMatch: process.env.PRERENDER_FILES_MATCH || /\.(?:css|js|jpg|png|gif|ico|svg|woff|ttf)(?:\?|$)/, // List of static file patterns
+  filesMatch: (process.env.PRERENDER_FILES_MATCH) ?
+    new RegExp(process.env.PRERENDER_FILES_MATCH) : /\.(?:css|js|jpg|png|gif|ico|svg|woff|ttf)(?:\?|$)/, // List of static file patterns
 
   logging: {
     level: process.env.PRERENDER_LOG_LEVEL || 'debug', // Logging verbosity
