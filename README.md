@@ -6,8 +6,8 @@ and either [PhantomJS](http://phantomjs.org/) or
 [JSDOM](https://github.com/tmpvar/jsdom) based on your preference.
 
 The goal of the project is to couple server-side rendering more closely
-with a specific web app. By utilizing a long-lived instance of the app
-rather than restarting it upon every request, rendering times can be 
+with a specific web app framework. By utilizing a long-lived instance of
+an app rather than reloading it on every request, rendering times can be 
 reduced.
 
 The concept and plugin code is based loosely off of the [Prerender
