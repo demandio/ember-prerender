@@ -64,7 +64,7 @@ In your routes:
               App.prerenderReady()
             ).then resolve
 
-    @_super.apply @, arguments
+    @_super arguments...
 ```
 Instead of adding this to each of your routes, you can extend Ember.Route to
 create a base route or use Ember.Route.reopen to change the default behavior.
