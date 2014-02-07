@@ -40,21 +40,32 @@ Example configuration (CoffeeScript):
 
 Add to: app/initialize.coffee
 ```
-App.prerenderEvent = document.createEvent('Event')
-App.prerenderEvent.initEvent('prerenderReady', true, true)
+# Prerender event
+prerenderEvent = document.createEvent('Event')
+prerenderEvent.initEvent('prerenderReady', true, true)
+App.prerenderReady = ->
+  document.dispatchEvent(prerenderEvent)
 document.addEventListener 'prerenderReady', ->
   console.log('PRERENDER READY')
 ```
 
 In your routes:
 ```
-  renderTemplate: (controller, model) ->
-    @render()
-    handlers = @router.router.targetHandlerInfos
-    if @routeName == handlers[handlers.length-1].name
-      # this is the leaf route
-      Ember.run.scheduleOnce 'afterRender', @, ->
-        document.dispatchEvent(App.prerenderEvent)
+  # Promise hook for when a page has loaded, can be overridden in subclasses
+  willComplete: -> Em.RSVP.resolve()
+
+  afterModel: (model, transition) ->
+    if @routeName == transition.targetName
+      # This is the leaf route
+      transition.then =>
+        new Em.RSVP.Promise (resolve, reject) =>
+          Em.run.next @, ->
+            @willComplete().then(=>
+              # You can do other things here too, such as updating the page title
+              App.prerenderReady()
+            ).then resolve
+
+    @_super.apply this, arguments
 ```
 Instead of adding this to each of your routes, you can extend Ember.Route to
 create a base route or use Ember.Route.reopen to change the default behavior.
