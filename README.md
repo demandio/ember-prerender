@@ -116,9 +116,7 @@ server {
     }
 
     if ($prerender = 1) {
-      rewrite .* $request_uri break;
-      #proxy_pass http://localhost:3000;
-      proxy_pass http://prerender.herokuapp.com;
+      proxy_pass http://localhost:3000;
     }
     if ($prerender = 0) {
       rewrite .* /index.html break;
