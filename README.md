@@ -44,9 +44,8 @@ Add to: app/initialize.coffee
 prerenderEvent = document.createEvent('Event')
 prerenderEvent.initEvent('prerenderReady', true, true)
 App.prerenderReady = ->
-  document.dispatchEvent(prerenderEvent)
-document.addEventListener 'prerenderReady', ->
   console.log('PRERENDER READY')
+  document.dispatchEvent(prerenderEvent)
 ```
 
 In your routes:
