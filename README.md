@@ -39,7 +39,7 @@ finishes rendering their templates.
 Example configuration (CoffeeScript):
 
 Add to: app/initialize.coffee
-```
+```CoffeeScript
 # Prerender event
 prerenderEvent = document.createEvent('Event')
 prerenderEvent.initEvent('prerenderReady', true, true)
@@ -49,7 +49,7 @@ App.prerenderReady = ->
 ```
 
 In your routes:
-```
+```CoffeeScript
   # Promise hook for when a page has loaded, can be overridden in subclasses
   willComplete: -> Em.RSVP.resolve()
 
