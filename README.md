@@ -39,7 +39,7 @@ finishes rendering their templates.
 Example configuration (CoffeeScript):
 
 Add to: app/initialize.coffee
-```
+```CoffeeScript
 # Prerender event
 prerenderEvent = document.createEvent('Event')
 prerenderEvent.initEvent('prerenderReady', true, true)
@@ -49,7 +49,7 @@ App.prerenderReady = ->
 ```
 
 In your routes:
-```
+```CoffeeScript
   # Promise hook for when a page has loaded, can be overridden in subclasses
   willComplete: -> Em.RSVP.resolve()
 
@@ -61,7 +61,7 @@ In your routes:
         for handler in transition.handlerInfos
           if handler.handler.willComplete
             promises.push handler.handler.willComplete()
-        Ember.RSVP.all(promises).then(=>
+        Ember.RSVP.all(promises).then(->
           # You can do other things here, such as changing the title and meta tags 
           App.prerenderReady()
         )
@@ -69,10 +69,13 @@ In your routes:
 Instead of adding this to each of your routes, you can extend Ember.Route to
 create a base route or use Ember.Route.reopen to change the default behavior.
 
-Depending on your app, you may have to tweak when the prerenderReady event is
-fired by overriding willTransition in your routes so that it returns a deferred
-promise. Ember-prerender sets window.isPrerender to true so that your app can
-see how it is being loaded.
+Depending on your app, you may need to postpone firing the prerenderReady event
+by overriding willTransition. You can do so by returning a deferred promise
+and resolving it after the other parts of the page have loaded.
+
+To detect whether your app is being loaded in a browser or through prerender,
+you can check the window.isPrerender variable which is set to true by
+ember-prerender.
 
 ## Web Server Setup ##
 
