@@ -68,10 +68,11 @@ In your routes:
 ```
 Instead of adding this to each of your routes, you can extend Ember.Route to
 create a base route or use Ember.Route.reopen to change the default behavior.
-You may have to tweak when the event is dispatched based on your specific app.
 
-If your Ember app has special handling for pages being loaded with
-prerender, you can check for the window.isPrerender flag.
+Depending on your app, you may have to tweak when the prerenderReady event is
+fired by overriding willTransition in your routes so that it returns a deferred
+promise. Ember-prerender will set window.isPrerender to true if you app needs
+to know how it is being loaded.
 
 ## Web Server Setup ##
 
