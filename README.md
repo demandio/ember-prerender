@@ -61,7 +61,7 @@ In your routes:
         for handler in transition.handlerInfos
           if handler.handler.willComplete
             promises.push handler.handler.willComplete()
-        Ember.RSVP.all(promises).then(=>
+        Ember.RSVP.all(promises).then(->
           # You can do other things here, such as changing the title and meta tags 
           App.prerenderReady()
         )
