@@ -53,18 +53,18 @@ In your routes:
   # Promise hook for when a page has loaded, can be overridden in subclasses
   willComplete: -> Em.RSVP.resolve()
 
-  afterModel: (model, transition) ->
-    if @routeName == transition.targetName
-      # This is the leaf route
-      transition.then =>
-        new Em.RSVP.Promise (resolve, reject) =>
-          Em.run.next @, ->
-            @willComplete().then(=>
-              # You can do other things here too, such as updating the page title
-              App.prerenderReady()
-            ).then resolve
-
-    @_super arguments...
+  actions:
+    didTransition: ->
+      transition = @router.router.activeTransition
+      if transition.targetName == @routeName
+        promises = []
+        for handler in transition.handlerInfos
+          if handler.handler.willComplete
+            promises.push handler.handler.willComplete()
+        Ember.RSVP.all(promises).then(=>
+          # You can do other things here, such as changing the title and meta tags 
+          App.prerenderReady()
+        )
 ```
 Instead of adding this to each of your routes, you can extend Ember.Route to
 create a base route or use Ember.Route.reopen to change the default behavior.
