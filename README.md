@@ -71,8 +71,8 @@ create a base route or use Ember.Route.reopen to change the default behavior.
 
 Depending on your app, you may have to tweak when the prerenderReady event is
 fired by overriding willTransition in your routes so that it returns a deferred
-promise. Ember-prerender will set window.isPrerender to true if you app needs
-to know how it is being loaded.
+promise. Ember-prerender sets window.isPrerender to true so that your app can
+see how it is being loaded.
 
 ## Web Server Setup ##
 
