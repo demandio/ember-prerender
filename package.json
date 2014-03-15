@@ -23,7 +23,7 @@
     "node": "0.10.21",
     "npm": "1.3.11"
   },
-  bin: {
+  "bin": {
     "ember-prerender": "bin/ember-prerender"
   }
 }
