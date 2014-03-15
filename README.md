@@ -23,14 +23,13 @@ Install dependencies:
 
     npm install
 
-Copy or edit the ./app/default.js configuration file to match your
+Copy or edit the ./config/default.js configuration file to match your
 app's environment.
 
-Run the service (with the environment variable containing the name of the 
-app config file):
+Run the service (with the NODE_ENV environment variable containing the name of
+the config file):
 
-    export APP="default"
-    node server.js
+    NODE_ENV="default" node server.js
 
 ## Ember Prerender Event ##
 

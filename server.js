@@ -4,12 +4,12 @@ var _ = require('lodash');
 var defaultConfig = {
   port: 3000,
   renderPoolMin: 1,
-  renderPoolMax: 4,
+  renderPoolMax: 1,
   renderPoolShrinkAfter: 30000,
   renderPoolMaxQueueSize: 5000,
   engine: 'jsdom',
   renderTimeout: 20000,
-  maxRequestsPerRenderer: 250,
+  maxRequestsPerRenderer: 100,
   baseUrl: 'http://www.your-ember-app.com/',
   assetsPath: process.env.HOME + '/public_html/',
   applicationPage: 'index.html',
@@ -26,8 +26,8 @@ var defaultConfig = {
   ]
 };
 
-if (process.env.APP) {
-  config = require('./apps/' + process.env.APP)
+if (process.env.NODE_ENV) {
+  config = require('./config/' + process.env.NODE_ENV)
   _.merge(defaultConfig, config);
 }
 
