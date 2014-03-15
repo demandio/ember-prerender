@@ -15,21 +15,16 @@ Service](https://github.com/collectiveip/prerender) by Todd Hooper.
 
 ## Usage ##
 
-Clone the repository:
+Install ember-prerender:
 
-    git clone https://github.com/zipfworks/prerender
+    sudo npm install -g zipfworks/ember-prerender
 
-Install dependencies:
-
-    npm install
-
-Copy or edit the ./config/default.js configuration file to match your
+Copy or edit the default configuration file (in /config/) to match your
 app's environment.
 
-Run the service (with the CONFIG environment variable containing the path
-to the config file):
+Run the service with the path to your configuration file:
 
-    CONFIG="my-config.js" node server.js
+    ember-prerender my-config.js
 
 ## Ember Prerender Event ##
 

@@ -27,7 +27,7 @@ var defaultConfig = {
 };
 
 if (process.env.CONFIG) {
-  config = require(process.env.NODE_ENV)
+  config = require(process.env.CONFIG)
   _.merge(defaultConfig, config);
 }
 

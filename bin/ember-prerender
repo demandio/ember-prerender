@@ -2,4 +2,15 @@
 
 process.bin = process.title = 'ember-prerender';
 
+if (process.argv.length < 3) {
+  console.log("Error: Usage: ember-prerender <config-file.js>");
+  process.exit(1);
+}
+
+var config = process.argv[2];
+if (config.indexOf('/') != 0) {
+  config = process.cwd() + '/' + config;
+}
+
+process.env.CONFIG = config;
 require('./../server.js');
