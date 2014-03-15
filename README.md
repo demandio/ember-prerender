@@ -26,10 +26,10 @@ Install dependencies:
 Copy or edit the ./config/default.js configuration file to match your
 app's environment.
 
-Run the service (with the NODE_ENV environment variable containing the name of
-the config file):
+Run the service (with the CONFIG environment variable containing the path
+to the config file):
 
-    NODE_ENV="default" node server.js
+    CONFIG="my-config.js" node server.js
 
 ## Ember Prerender Event ##
 

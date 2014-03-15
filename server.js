@@ -10,8 +10,8 @@ var defaultConfig = {
   engine: 'jsdom',
   renderTimeout: 20000,
   maxRequestsPerRenderer: 100,
-  baseUrl: 'http://www.your-ember-app.com/',
-  assetsPath: process.env.HOME + '/public_html/',
+  baseUrl: 'http://localhost/',
+  assetsPath: process.cwd() + '/public/',
   applicationPage: 'index.html',
   serveFiles: true,
   filesMatch: /\.(?:css|js|jpg|png|gif|ico|svg|woff|ttf|swf)(?:\?|$)/,
@@ -26,8 +26,8 @@ var defaultConfig = {
   ]
 };
 
-if (process.env.NODE_ENV) {
-  config = require('./config/' + process.env.NODE_ENV)
+if (process.env.CONFIG) {
+  config = require(process.env.NODE_ENV)
   _.merge(defaultConfig, config);
 }
 

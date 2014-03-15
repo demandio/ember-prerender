@@ -1,0 +1,5 @@
+#!/usr/bin/env node
+
+process.bin = process.title = 'ember-prerender';
+
+require('./../server.js');
