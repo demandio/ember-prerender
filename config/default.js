@@ -1,14 +1,9 @@
 module.exports = {
   port: 3000,  // The port that prerender runs on (Phantom will use additional ports)
 
-  renderPoolMin: 1,             // Min number of worker processes
-  renderPoolMax: 2,             // Max number of worker processes
-  renderPoolShrinkAfter: 30000, // Milliseconds to wait before killing idle workers
-  renderPoolMaxQueueSize: 5000, // Maximum number of requests to queue
-
   engine: 'phantom',            // Can be: jsdom, phantom
   renderTimeout: 20000,         // Milliseconds to wait before a render job is considered a failure
-  maxRequestsPerRenderer: 250,  // Maximum number of requests a worker can handle before it's restarted
+  maxRequestsPerRenderer: 200,  // Maximum number of requests a worker can handle before it's restarted
 
   baseUrl: 'http://localhost/',                                           // Your app's base URL
   assetsPath: process.env.HOME + '/Documents/Projects/ember-app/public/', // Path to your app's files

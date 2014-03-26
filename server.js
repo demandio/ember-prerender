@@ -3,10 +3,6 @@ var _ = require('lodash');
 
 var defaultConfig = {
   port: 3000,
-  renderPoolMin: 1,
-  renderPoolMax: 1,
-  renderPoolShrinkAfter: 30000,
-  renderPoolMaxQueueSize: 5000,
   engine: 'jsdom',
   renderTimeout: 20000,
   maxRequestsPerRenderer: 100,
