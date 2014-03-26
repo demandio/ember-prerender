@@ -3,6 +3,7 @@ var _ = require('lodash');
 
 var defaultConfig = {
   port: 3000,
+  phantomPort: 30000,
   engine: 'jsdom',
   renderTimeout: 20000,
   maxRequestsPerRenderer: 100,

@@ -1,5 +1,6 @@
 module.exports = {
   port: 3000,  // The port that prerender runs on (Phantom will use additional ports)
+  phantomPort: 30000,  // The port that PhantomJS uses (if using the phantom engine)
 
   engine: 'phantom',            // Can be: jsdom, phantom
   renderTimeout: 20000,         // Milliseconds to wait before a render job is considered a failure

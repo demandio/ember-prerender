@@ -17,14 +17,19 @@ Service](https://github.com/collectiveip/prerender) by Todd Hooper.
 
 Install ember-prerender:
 
-    sudo npm install -g zipfworks/ember-prerender
+    $ sudo npm install -g zipfworks/ember-prerender
 
 Copy or edit the default configuration file (in /config/) to match your
 app's environment.
 
 Run the service with the path to your configuration file:
 
-    ember-prerender my-config.js
+    $ ember-prerender config/default.js
+
+If you're invoking node directly:
+
+    $ export CONFIG="config/default.js"
+    $ node server.js
 
 ## Ember Prerender Event ##
 
@@ -68,6 +73,28 @@ To detect whether your app is being loaded in a browser or through prerender,
 you can check the window.isPrerender variable which is set to true by
 ember-prerender.
 
+## Reloading ##
+
+If your web application changes, you can send a SIGUSR2 signal to the
+master prerender process to cause the page to be reloaded.
+
+## Supervisor ##
+
+You may use supervisord to start, stop, restart, and monitor
+ember-prerencer. The following is an example configuration file which
+should be placed in /etc/supervisor/conf.d/:
+
+```
+[program:prerender-yourappname]
+command = ember-prerender /mnt/ebs1/www/yourappname/conf/prerender.js
+directory = /mnt/ebs1/www/yourappname
+user = yourappname
+autostart = true
+autorestart = true
+stdout_logfile = /mnt/ebs1/www/yourappname/logs/prerender.log
+stderr_logfile = /mnt/ebs1/www/yourappname/logs/prerender.error.log
+```
+
 ## Web Server Setup ##
 
 Once Ember Prerender is working with your project, you'll probably
@@ -75,16 +102,19 @@ want to enable prerendering for certain user agents (e.g. web crawlers)
 while serving Javascript for compatible browsers. One way to do this
 is by setting up Nginx as a reverse proxy (below).
 
-### Reloading ###
-
-If your web application changes, you can send a SIGUSR2 signal to the
-master prerender process to cause the workers to restart.
-
 ### Nginx Reverse Proxy Setup ###
 
-Example configuration:
+Example configuration (you can add additional instances to the upstream
+backend:
 
 ```Nginx
+upstream prerender-yourappname-backend {
+  server localhost:3000;
+  #server localhost:3001;
+  #server localhost:3002;
+  #server localhost:3003;
+}
+
 server {
   listen 80;
   listen [::]:80;
@@ -121,7 +151,8 @@ server {
     }
 
     if ($prerender = 1) {
-      proxy_pass http://localhost:3000;
+      proxy_pass http://prerender-yourappname-backend;
+      proxy_next_upstream error timeout;
     }
     if ($prerender = 0) {
       rewrite .* /index.html break;
