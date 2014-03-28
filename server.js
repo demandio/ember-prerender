@@ -14,7 +14,7 @@ var defaultConfig = {
   assetsPath: process.cwd() + '/public/',
   applicationPage: 'index.html',
   serveFiles: true,
-  filesMatch: /\.(?:css|js|jpg|png|gif|ico|svg|woff|ttf|swf)(?:\?|$)/,
+  filesMatch: /\.(?:css|js|jpg|png|gif|ico|svg|woff|ttf|swf|map)(?:\?|$)/,
   logging: {
     level: 'debug',
     timestamp: true,
