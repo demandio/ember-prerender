@@ -13,7 +13,7 @@ module.exports = {
   assetsPath: process.env.HOME + '/Documents/Projects/ember-app/public/', // Path to your app's files
   applicationPage: 'index.html',                                          // Main application page
   serveFiles: true,                                                       // Serve static files
-  filesMatch: /\.(?:css|js|jpg|png|gif|ico|svg|woff|ttf|swf)(?:\?|$)/,    // List of static file patterns
+  filesMatch: /\.(?:css|js|jpg|png|gif|ico|svg|woff|ttf|swf|map)(?:\?|$)/,// List of static file patterns
 
   logging: {
     level: 'debug',   // Logging verbosity
