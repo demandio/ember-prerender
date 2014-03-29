@@ -5,7 +5,7 @@ var defaultConfig = {
   port: 3000,
   phantomPort: 30000,
   processNum: 0,
-  engine: 'jsdom',
+  engine: 'phantom',
   initializeTimeout: 25000,
   renderTimeout: 15000,
   maxRequestsPerRenderer: 100,
