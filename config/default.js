@@ -1,7 +1,8 @@
 module.exports = {
-  port: 3000,          // The port that prerender runs on (Phantom will use additional ports)
-  phantomPort: 30000,  // The port that PhantomJS uses (if using the phantom engine)
-  processNum: 0,       // Process number (starting from 0) which is added to the above ports, used when running multiple instances
+  port: 3000,               // The port that prerender runs on (Phantom will use additional ports)
+  phantomPortStart: 30000,  // The starting port range for the PhantomJS bridge to use (an available port in the range will be used)
+  phantomPortEnd: 40000,    // The ending port range for the PhantomJS bridge to use
+  processNum: 0,            // Process number (starting from 0) which is added to the above ports, used when running multiple instances
 
   engine: 'phantom',            // Can be: jsdom, phantom
   initializeTimeout: 25000,     // Milliseconds to wait for the initial app load

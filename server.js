@@ -3,7 +3,8 @@ var _ = require('lodash');
 
 var defaultConfig = {
   port: 3000,
-  phantomPort: 30000,
+  phantomPortStart: 30000,
+  phantomPortEnd: 40000,
   processNum: 0,
   engine: 'phantom',
   initializeTimeout: 25000,
