@@ -1,7 +1,7 @@
 # Ember Prerender #
 
-This project allows [Ember.js](http://emberjs.com/) (and likely other)
-web applications to be prerendered on the server using [Node.js](http://nodejs.org/)
+This project allows [Ember.js](http://emberjs.com/) web applications to be
+rendered on the server using [Node.js](http://nodejs.org/)
 and either [PhantomJS](http://phantomjs.org/) or
 [JSDOM](https://github.com/tmpvar/jsdom) based on your preference.
 
@@ -9,6 +9,10 @@ The goal of the project is to couple server-side rendering more closely
 with a specific web app framework. By utilizing a long-lived instance of
 an app rather than reloading it on every request, rendering times can be 
 reduced.
+
+It should be fairly easy to adapt this code to work with other web
+application frameworks. Abstracting out the Ember-specific parts to
+be more modular may be done by this project in the future.
 
 The concept and plugin code is based loosely off of the [Prerender
 Service](https://github.com/collectiveip/prerender) by Todd Hooper.
@@ -26,11 +30,15 @@ Run the service with the path to your configuration file:
 
     $ ember-prerender config/default.js [optional process num]
 
-If you're invoking node directly:
+If you're invoking ember-prerender directly from the cloned repository,
+you can do this instead:
 
     $ export CONFIG="./config/default.js"
     $ export PROCESS_NUM=0
     $ node server.js
+
+Test the prerender service by visiting it in your browser at
+[http://localhost:3000](http://localhost:3000) (default).
 
 ## Ember Prerender Event ##
 
@@ -81,9 +89,9 @@ master prerender process to cause the page to be reloaded.
 
 ## Supervisor ##
 
-You may use [supervisord](http://supervisord.org/) to start, stop, restart, and monitor
-ember-prerender. The following is an example configuration file which
-should be placed in /etc/supervisor/conf.d/:
+You may use [supervisord](http://supervisord.org/), forever, foreman, upstart, etc to
+start, stop, restart, and monitor ember-prerender. The following is an example
+supervisord configuration file which should be placed in /etc/supervisor/conf.d/:
 
 ```
 [program:prerender-yourappname]
@@ -104,12 +112,13 @@ numprocs = 1
 Once Ember Prerender is working with your project, you'll probably
 want to enable prerendering for certain user agents (e.g. web crawlers)
 while serving Javascript for compatible browsers. One way to do this
-is by setting up Nginx as a reverse proxy (below).
+is by setting up a reverse proxy, such as nginx, haproxy,
+apache, squid, etc.
 
 ### Nginx Reverse Proxy Setup ###
 
 Example configuration (you can add additional instances to the upstream
-backend:
+backend for load balancing):
 
 ```Nginx
 upstream prerender-yourappname-backend {
