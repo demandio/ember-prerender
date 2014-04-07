@@ -28,12 +28,12 @@ var defaultConfig = {
 };
 
 if (process.env.CONFIG) {
-  config = require(process.env.CONFIG)
+  var config = require(process.env.CONFIG)
   _.merge(defaultConfig, config);
 }
 
 if (process.env.PROCESS_NUM) {
-  defaultConfig.processNum = parseInt(process.env.PROCESS_NUM);
+  defaultConfig.processNum = parseInt(process.env.PROCESS_NUM, 10);
 }
 
 var server = prerender(defaultConfig);
