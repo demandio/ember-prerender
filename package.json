@@ -20,10 +20,6 @@
     "phantomjs": "latest",
     "phantom": "latest"
   },
-  "engines": {
-    "node": "0.10.21",
-    "npm": "1.3.11"
-  },
   "bin": {
     "ember-prerender": "bin/ember-prerender"
   }
