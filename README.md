@@ -1,6 +1,7 @@
 # Ember Prerender #
 
 [![Code Climate](https://codeclimate.com/github/zipfworks/ember-prerender.png)](https://codeclimate.com/github/zipfworks/ember-prerender)
+[![Dependency Status](https://gemnasium.com/zipfworks/ember-prerender.svg)](https://gemnasium.com/zipfworks/ember-prerender)
 
 This project allows [Ember.js](http://emberjs.com/) web applications to be
 rendered on the server using [Node.js](http://nodejs.org/)
