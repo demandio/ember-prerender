@@ -54,11 +54,13 @@ Example configuration (CoffeeScript):
 Add to: app/initialize.coffee
 ```CoffeeScript
 # Prerender event
-prerenderEvent = document.createEvent('Event')
-prerenderEvent.initEvent('prerenderReady', true, true)
+if document.createEvent
+  prerenderEvent = document.createEvent('Event')
+  prerenderEvent.initEvent('XContentReady', false, false)
 App.prerenderReady = ->
   console.log('PRERENDER READY')
-  document.dispatchEvent(prerenderEvent)
+  if prerenderEvent
+    document.dispatchEvent(prerenderEvent)
 ```
 
 In your routes (as of Ember 1.4):
