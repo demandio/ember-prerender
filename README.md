@@ -43,11 +43,11 @@ you can do this instead:
 Test the prerender service by visiting it in your browser at
 [http://localhost:3000](http://localhost:3000) (default).
 
-## Ember Prerender Event ##
+## Content Ready Event ##
 
 In order for ember-prerender to know that your pages are fully rendered,
 your application must emit the
-[https://github.com/n-fuse/the-XContentReady-Event/](XContentReady) event
+[XContentReady](https://github.com/n-fuse/the-XContentReady-Event/) event
 whenever each of your routes finishes rendering their templates.
 
 Example configuration (CoffeeScript):
