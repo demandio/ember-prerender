@@ -46,19 +46,20 @@ Test the prerender service by visiting it in your browser at
 ## Ember Prerender Event ##
 
 In order for ember-prerender to know that your pages are fully rendered,
-your application must emit the prerenderReady event whenever each of your routes
-finishes rendering their templates.
+your application must emit the
+[https://github.com/n-fuse/the-XContentReady-Event/](XContentReady) event
+whenever each of your routes finishes rendering their templates.
 
 Example configuration (CoffeeScript):
 
 Add to: app/initialize.coffee
 ```CoffeeScript
 # Prerender event
-prerenderEvent = document.createEvent('Event')
-prerenderEvent.initEvent('prerenderReady', true, true)
 App.prerenderReady = ->
   console.log('PRERENDER READY')
-  document.dispatchEvent(prerenderEvent)
+  if window.isPrerender
+    var e = new CustomEvent('XContentReady');
+    document.dispatchEvent(e);
 ```
 
 In your routes (as of Ember 1.4):
@@ -77,7 +78,7 @@ In your routes (as of Ember 1.4):
 Instead of adding this to each of your routes, you can extend Ember.Route to
 create a base route or use Ember.Route.reopen to change the default behavior.
 
-Depending on your app, you may need to postpone firing the prerenderReady event
+Depending on your app, you may need to postpone firing the XContentReady event
 by overriding willTransition. You can do so by returning a deferred promise
 and resolving it after the other parts of the page have loaded.
 
