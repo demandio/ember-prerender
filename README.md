@@ -57,9 +57,9 @@ Add to: app/initialize.coffee
 # Prerender event
 App.prerenderReady = ->
   console.log('PRERENDER READY')
-  if window.isPrerender
-    var e = new CustomEvent('XContentReady');
-    document.dispatchEvent(e);
+  if typeof(CustomEvent) == 'function'
+    e = new CustomEvent('XContentReady')
+    document.dispatchEvent(e)
 ```
 
 In your routes (as of Ember 1.4):
