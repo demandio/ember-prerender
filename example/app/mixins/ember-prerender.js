@@ -1,6 +1,6 @@
 export default Ember.Mixin.create({
   willComplete: function() {
-    Em.RSVP.resolve();
+    Ember.RSVP.resolve();
   },
   actions: {
     didTransition: function() {
