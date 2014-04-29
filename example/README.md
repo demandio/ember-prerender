@@ -10,7 +10,7 @@ and ember-prerender:
 
     npm install -g ember-cli
     npm install -g bower
-    npm install -g ember-prerender
+    npm install -g zipfworks/ember-prerender
 
 View the project in your browser:
 
