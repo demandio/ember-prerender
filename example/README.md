@@ -34,3 +34,11 @@ To render the project with ember-prerender:
 In your browser, open [http://localhost:3000](http://localhost:3000) to view the static html version of the site.
 
 The example project includes three routes, an index at /, an AJAX page at /dynamic, and a 404 page at any other url (e.g. /foo).
+
+## How does it work? ##
+
+A custom initializer in **_app/initializers/ember-prerender.js_** registers a custom XContentReady event and creates a method on your application object which dispatches the event.
+
+A mixin in **_app/mixins/ember-prerender.js_** gets added to the routes in **_app/routes/*_** which dispatches the custom event when Ember.js has finished transitioning to the route and any promises have been resolved. (Promises can be returned by the optional willComplete method in your controllers if there is something on the page that gets lazily loaded.)
+
+The rest of the project is your everyday, run-of-the-mill Ember.js code.
