@@ -1,0 +1,23 @@
+html, body {
+  margin: 20px;
+  font-family: sans-serif;
+}
+
+.clear:before,
+.clear:after {
+  content: " ";
+  display: table;
+}
+.clear:after {
+  clear: both;
+}
+
+.floated {
+  float: left;
+  height: 240px;
+  width: 240px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  display: block;
+}
