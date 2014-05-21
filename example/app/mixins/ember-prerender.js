@@ -1,6 +1,6 @@
 export default Ember.Mixin.create({
   willComplete: function() {
-    Em.RSVP.resolve();
+    Ember.RSVP.resolve();
   },
   actions: {
     didTransition: function() {
@@ -11,7 +11,7 @@ export default Ember.Mixin.create({
           promises.push(currentHandlerInfos[i].handler.willComplete());
         }
       }
-      Ember.RSVP.all(promises).then(App.prerenderReady);
+      Ember.RSVP.all(promises).then(window.Example.prerenderReady);
     }
   }
 });
