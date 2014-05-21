@@ -3,8 +3,6 @@ module.exports = {
   processNum: 0,  // Process number (starting from 0) which is added to the above port, used when running multiple instances
 
   engine: 'phantom',        // Can be: jsdom, phantom
-  phantomPortStart: 30000,  // The starting port range for the PhantomJS bridge to use (an available port in the range will be used)
-  phantomPortEnd: 40000,    // The ending port range for the PhantomJS bridge to use
 
   initializeTimeout: 25000,     // Milliseconds to wait for the initial app load
   renderTimeout: 15000,         // Milliseconds to wait before a render job is considered a failure
