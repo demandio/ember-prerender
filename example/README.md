@@ -42,3 +42,7 @@ A custom initializer in **_app/initializers/ember-prerender.js_** registers a cu
 A mixin in **_app/mixins/ember-prerender.js_** gets added to the routes in **_app/routes/*_** which dispatches the custom event when Ember.js has finished transitioning to the route and any promises have been resolved. (Promises can be returned by the optional willComplete method in your controllers if there is something on the page that gets lazily loaded.)
 
 The rest of the project is your everyday, run-of-the-mill Ember.js code.
+
+## Caveats ##
+
+Ember-prerender expects your Ember app to be located at window.App. This could be a configuration option if there's demand for it.
