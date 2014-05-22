@@ -4,8 +4,9 @@ module.exports = {
 
   engine: 'phantom',        // Can be: jsdom, phantom
 
-  initializeTimeout: 25000,     // Milliseconds to wait for the initial app load
-  renderTimeout: 15000,         // Milliseconds to wait before a render job is considered a failure
+  contentReadyDelay: 0,         // Milliseconds to wait after the page load but before getting the HTML
+  initializeTimeout: 25000,     // Maximum milliseconds to wait before the initial app load times out
+  renderTimeout: 15000,         // Maximum milliseconds to wait before a render job times out
   maxRequestsPerRenderer: 200,  // Maximum number of requests a worker can handle before it's restarted
   maxQueueSize: 1000,           // Maximum number of rendering requests to queue up before dropping new ones
 

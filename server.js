@@ -5,6 +5,7 @@ var defaultConfig = {
   port: 3000,
   processNum: 0,
   engine: 'phantom',
+  contentReadyDelay: 0,
   initializeTimeout: 25000,
   renderTimeout: 15000,
   maxRequestsPerRenderer: 100,
