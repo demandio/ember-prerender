@@ -8,12 +8,14 @@
 
     {{BASE_TAG}}
 
-    <link rel="stylesheet" href="assets/app.css">
+    <link rel="stylesheet" href="assets/example.css">
   </head>
   <body>
-    <script src="assets/app.js"></script>
     <script>
       window.ENV = {{ENV}};
+    </script>
+    <script src="assets/example.js"></script>
+    <script>
       window.App = require('example/app')['default'].create(ENV.APP);
     </script>
   </body>

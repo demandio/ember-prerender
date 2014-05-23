@@ -1,3 +1,5 @@
+/* global require */
+
 var Application = require('example/app')['default'];
 var Router = require('example/router')['default'];
 
