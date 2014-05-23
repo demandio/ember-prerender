@@ -4,6 +4,8 @@ export default Ember.Mixin.create({
   },
   actions: {
     didTransition: function() {
+      this._super();
+
       var promises = [];
       var currentHandlerInfos = this.router.get('router.currentHandlerInfos');
       for (var i = 0; i < currentHandlerInfos.length; i++) {
@@ -15,3 +17,4 @@ export default Ember.Mixin.create({
     }
   }
 });
+

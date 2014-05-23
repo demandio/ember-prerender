@@ -1,6 +1,5 @@
 module.exports = {
   engine: 'phantom',
-  contentReadyDelay: 0,
   baseUrl: 'http://localhost/',
   assetsPath: process.cwd() + '/dist/',
   plugins: [
