@@ -12,7 +12,7 @@ html, body {
   clear: both;
 }
 
-.floated {
+.clear > .floated {
   float: left;
   height: 240px;
   width: 240px;
