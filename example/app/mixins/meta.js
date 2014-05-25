@@ -9,9 +9,6 @@ export default Ember.Mixin.create({
           $.extend(fields, controller.metaFields());
         }
       }
-      if (fields.title) {
-        document.title = fields.title;
-      }
       this._addMetaTags(fields);
       this._super();
     }
@@ -33,6 +30,8 @@ export default Ember.Mixin.create({
         content: fields.statusCode
       });
     }
+
+    document.title = fields.title || window.App.META_TITLE_DEFAULT;
 
     $('#meta-start').nextUntil('#meta-end').remove();
     for (var i = 0; i < tags.length; i++) {

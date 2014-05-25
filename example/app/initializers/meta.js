@@ -1,6 +1,7 @@
 export default {
   name: 'meta',
-  initialize: function() {
+  initialize: function(controller, application) {
+    application.META_TITLE_DEFAULT = document.title;
     $(function() {
       $('head').append(
         $('<script>', {
