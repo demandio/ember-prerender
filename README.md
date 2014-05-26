@@ -14,9 +14,10 @@ with a specific web app framework. By utilizing a long-lived instance of
 an app rather than reloading it on every request, rendering times can be 
 reduced.
 
-It should be fairly easy to adapt this code to work with other web
-application frameworks. Abstracting out the Ember-specific parts to
-be more modular may be done by this project in the future.
+Although this project is called ember-prerender, the code should work
+with any web application that implements the events outlined in this README.
+Please let me know if you get this working with your Angular, Backbone, Knockout,
+etc apps.
 
 The concept and plugin code is based loosely off of the [Prerender
 Service](https://github.com/collectiveip/prerender) by Todd Hooper.
