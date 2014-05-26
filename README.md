@@ -44,25 +44,44 @@ you can do this instead:
 Test the prerender service by visiting it in your browser at
 [http://localhost:3000](http://localhost:3000) (default).
 
-## Content Ready Event ##
+## XPushState and XContentReady Events ##
 
-In order for ember-prerender to know that your pages are fully rendered,
-your application must emit the
+Your application must accept the XPushState event with a 'url'
+property on the event. After receiving the event, your app should
+transition to the route that matches the URL. After the route has loaded,
+your must emit the
 [XContentReady](https://github.com/n-fuse/the-XContentReady-Event/) event
-whenever each of your routes finishes rendering their templates.
+to let ember-prerender know that the page is ready.
 
-Example configuration (CoffeeScript):
+To find out more about implmenting the events, the best place to start is
+by looking at the initializers and mixins in the example project of this
+repo.
+
+### Example Configuration (CoffeeScript) ###
 
 Add to: app/initialize.coffee
 ```CoffeeScript
 # Prerender event
 if document.createEvent
-  prerenderEvent = document.createEvent('Event')
-  prerenderEvent.initEvent('XContentReady', false, false)
+  window.prerenderReadyEvent = document.createEvent('Event')
+  window.prerenderReadyEvent.initEvent('XContentReady', false, false)
+
+  window.prerenderTransitionEvent = document.createEvent('Event')
+  window.prerenderTransitionEvent.initEvent('XPushState', false, false)
+
 App.prerenderReady = ->
   console.log('PRERENDER READY')
   if prerenderEvent
     document.dispatchEvent(prerenderEvent)
+
+document.addEventListener('XPushState', (event) ->
+  router = App.__container__.lookup 'router:main'
+  Ember.run ->
+    router.replaceWith(event.url).then (route) ->
+      if route.handlerInfos
+        // The requested route was already loaded
+        App.prerenderReady()
+, false)
 ```
 
 In your routes (as of Ember 1.4):
@@ -72,6 +91,7 @@ In your routes (as of Ember 1.4):
 
   actions:
     didTransition: ->
+      @_super()
       promises = []
       for handler in @router.router.currentHandlerInfos
         if handler.handler.willComplete
