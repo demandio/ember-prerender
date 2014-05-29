@@ -4,23 +4,25 @@
 [![Dependency Status](https://gemnasium.com/zipfworks/ember-prerender.svg)](https://gemnasium.com/zipfworks/ember-prerender)
 [![Stories in Ready](https://badge.waffle.io/zipfworks/ember-prerender.png?label=ready&title=Ready)](https://waffle.io/zipfworks/ember-prerender)
 
-This project allows [Ember.js](http://emberjs.com/) web applications to be
-rendered on the server using [Node.js](http://nodejs.org/)
-and either [PhantomJS](http://phantomjs.org/) or
-[JSDOM](https://github.com/tmpvar/jsdom) based on your preference.
+This project allows web apps built with [Ember.js](http://emberjs.com/) (and other
+frameworks) to be executed on the server and rendered into static HTML. The main
+reason you'd want to use ember-prerender is to serve static HTML content to web
+crawlers which aren't capable of executing Javascript (for SEO purposes).
 
-The goal of the project is to couple server-side rendering more closely
-with a specific web app framework. By utilizing a long-lived instance of
-an app rather than reloading it on every request, rendering times can be 
-reduced.
+The project makes use of [Node.js](http://nodejs.org/) and either
+[PhantomJS](http://phantomjs.org/) or [JSDOM](https://github.com/tmpvar/jsdom)
+based on your preference.
 
-Although this project is called ember-prerender, the code should work
-with any web application that implements the events outlined in this README.
-Please let me know if you get this working with your Angular, Backbone, Knockout,
-etc apps.
+The concept and plugin code is based loosely off of
+the [Prerender Service](https://github.com/collectiveip/prerender) by Todd Hooper.
+Unlike the Prerender Service, the goal of the project is to reduce rendering times
+by utilizing a long-lived instance of an app instead of reloading it on every request.
+In addition, you have the flexibility of using JSDOM instead of PhantomJS.
 
-The concept and plugin code is based loosely off of the [Prerender
-Service](https://github.com/collectiveip/prerender) by Todd Hooper.
+Although the current focus of this project is to support Ember apps, the code is
+completely decoupled from Ember.js and can be used with Angular, Backbone, Knockout,
+jQuery, etc. (assuming your app implements the XPushState and XContentReady events
+described in this README).
 
 ## Usage ##
 
