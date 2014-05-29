@@ -15,7 +15,7 @@ based on your preference.
 
 The concept and plugin code is based loosely off of
 the [Prerender Service](https://github.com/collectiveip/prerender) by Todd Hooper.
-Unlike the Prerender Service, the goal of the project is to reduce rendering times
+Unlike the Prerender Service, the goal of ember-prerender is to reduce rendering times
 by utilizing a long-lived instance of an app instead of reloading it on every request.
 In addition, you have the flexibility of using JSDOM instead of PhantomJS.
 
@@ -204,6 +204,10 @@ server {
   }
 }
 ```
+
+Google is now rendering Javascript pages, so you may want to remove
+Googlebot from the list of user agents (after testing your pages in
+Webmaster Tools).
 
 ## License ##
 
