@@ -7,7 +7,10 @@
 This project allows web apps built with [Ember.js](http://emberjs.com/) (and other
 frameworks) to be executed on the server and rendered into static HTML. The main
 reason you'd want to use ember-prerender is to serve static HTML content to web
-crawlers which aren't capable of executing Javascript (for SEO purposes).
+crawlers and bots which aren't capable of executing Javascript. This is useful
+for SEO purposes, such as general indexing of page content, Facebook's Link Preview,
+Pinterest's Rich Pins, Twitter Cards, Google's Rich Snippets, and other structured
+data formats.
 
 The project makes use of [Node.js](http://nodejs.org/) and either
 [PhantomJS](http://phantomjs.org/) or [JSDOM](https://github.com/tmpvar/jsdom)
