@@ -50,6 +50,19 @@ you can do this instead:
 Test the prerender service by visiting it in your browser at
 [http://localhost:3000](http://localhost:3000) (default).
 
+## Example Ember.js Project ##
+
+If you want to see ember-prerender in action, check out the example project at: 
+[https://github.com/zipfworks/ember-prerender/tree/master/example](https://github.com/zipfworks/ember-prerender/tree/master/example)
+
+The example demonstrates the following use cases: 
+
+  * Rendering a page that loads an external resource
+  * Returning 404 headers
+  * Returning 301 redirects
+  * Recovering from fatal Javascript errors
+  * Updating the page title and meta tags for each route
+
 ## XPushState and XContentReady Events ##
 
 Your application must accept the XPushState event with a 'url'
