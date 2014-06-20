@@ -13,7 +13,7 @@ You'll also find an initializer and mixin used for updating the page title, meta
 
 Other files to check out are **_app/router.js_** and **_app/templates/*_**.
 
-The rest of the project is from the default template project built with ember-cli by running `ember generate App`.
+The rest of the project is from the default template project built with ember-cli by running `ember new App`.
 
 ## Getting Started ##
 
