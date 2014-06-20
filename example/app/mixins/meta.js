@@ -31,6 +31,13 @@ export default Ember.Mixin.create({
       });
     }
 
+    if (fields.header) {
+      tags.push({
+        property: 'prerender:header',
+        content: fields.header
+      });
+    }
+
     document.title = fields.title || window.App.META_TITLE_DEFAULT;
 
     $('#meta-start').nextUntil('#meta-end').remove();

@@ -1,5 +1,6 @@
 module.exports = {
-  engine: 'jsdom',
+  engine: 'phantom',
+  //engine: 'jsdom',
   baseUrl: 'http://localhost/',
   assetsPath: process.cwd() + '/dist/',
   plugins: [

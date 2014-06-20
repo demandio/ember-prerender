@@ -4,6 +4,8 @@ var Router = Ember.Router.extend({
 
 Router.map(function() {
   this.resource('dynamic');
+  this.route('crash');
+  this.route('redirect');
   this.route('missing', { path: '/*path' });
 });
 
