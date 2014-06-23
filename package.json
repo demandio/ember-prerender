@@ -2,14 +2,14 @@
   "name": "ember-prerender",
   "summary": "Static HTML rendering for Ember.js",
   "description": "Render static HTML from your Ember.js web apps on the server for SEO and other purposes.",
-  "version": "2.1.2",
+  "version": "2.2.0",
   "author": "Brian Stanback",
   "repository": {
     "type": "git",
     "url": "https://github.com/zipfworks/ember-prerender"
   },
   "dependencies": {
-    "mime": ">= 1.2 < 1.3",
+    "request": ">= 2.0 < 3.0",
     "lodash": ">= 2.4 < 2.5",
     "cli-color": ">= 0.3 < 0.4",
     "pretty": ">= 0.1 < 0.2",
