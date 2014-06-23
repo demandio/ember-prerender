@@ -15,7 +15,7 @@ var config = {
   "baseUrl": "http://localhost:4200/",
   "applicationPage": "index.html",
   "serveFiles": true,
-  "filesMatch": "/\\\.(?:css|js|jpg|png|gif|ico|svg|woff|ttf|swf|map)(?:\\\?|$)/i",
+  "filesMatch": "/\\.(?:css|js|jpg|png|gif|ico|svg|woff|ttf|swf|map)(?:\\?|$)/i",
   "logging": {
     "level": "debug",
     "timestamp": true,
