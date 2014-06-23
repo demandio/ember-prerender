@@ -1,5 +1,6 @@
 var prerender = require('./lib');
 var _ = require('lodash');
+var fs = require('fs');
 
 // Default configuration values:
 var config = {
@@ -27,11 +28,8 @@ var config = {
 };
 
 if (process.env.CONFIG) {
-  var userConfig = require(process.env.CONFIG);
-  console.log(userConfig);
-  process.exit();
-
-
+  var userConfigJson = fs.readFileSync(process.env.CONFIG, 'utf8');
+  var userConfig = JSON.parse(userConfigJson);
   _.merge(config, userConfig);
 }
 
