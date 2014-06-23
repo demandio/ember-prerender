@@ -32,18 +32,18 @@ Once you've downloaded the dependencies, clone this repository and run the follo
 
 ## Running ##
 
-To view the project in your browser:
+First, view the project in your browser:
 
     ember server
     
 In your browser, open [http://localhost:4200](http://localhost:4200) to view the Javascript version of the site.
 
-To render the project with ember-prerender:
+To render the project with ember-prerender, keep "ember server" running
+and type:
 
-    ember build
     ember-prerender ember-prerender-config.js
 
-In your browser, open [http://localhost:3000](http://localhost:3000) to view the static html version of the site.
+In your browser, open [http://localhost:3000](http://localhost:3000) to view the static html version of the site
 
 The example project includes three routes, an index at /, an AJAX page at /dynamic, and a 404 page at any other url (e.g. /foo).
 
