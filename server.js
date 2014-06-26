@@ -13,6 +13,7 @@ var config = {
   "maxRequestsPerRenderer": 100,
   "maxQueueSize": 1000,
   "baseUrl": "http://localhost:4200/",
+  "initializeUrl": "",
   "applicationPage": "index.html",
   "serveFiles": true,
   "filesMatch": "/\\.(?:css|js|jpg|png|gif|ico|svg|woff|ttf|swf|map)(?:\\?|$)/i",
