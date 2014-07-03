@@ -104,8 +104,6 @@ module.exports = {
     "format": true
   },
 
-  // You can load plugin as plugin name from "lib/plugins" directory
-  // or require your own plugin e.g. require('./path-to-plugin.js').
   // Available plugins:
   "plugins": [
     "removeScriptTags",
@@ -114,6 +112,7 @@ module.exports = {
     //"prettyPrintHtml",
     //"inMemoryHtmlCache",
     //"s3HtmlCache",
+    //require('./your-own-plugin.js')
   ]
 }
 ```
