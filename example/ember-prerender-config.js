@@ -3,6 +3,6 @@ module.exports = {
   baseUrl: 'http://localhost:4200/',
   plugins: [
       'removeScriptTags',
-      require('../lib/plugins/httpHeaders')
+      'httpHeaders'
   ]
 };
