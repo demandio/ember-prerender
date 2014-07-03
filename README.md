@@ -105,7 +105,7 @@ module.exports = {
   },
 
   // Available plugins:
-  "plugins": [
+  plugins: [
     "removeScriptTags",
     "httpHeaders",
     //"prepareEmail",
