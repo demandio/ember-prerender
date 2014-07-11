@@ -38,12 +38,12 @@ app's environment.
 
 Run the service with the path to your configuration file:
 
-    $ ember-prerender config/default.json [optional process num]
+    $ ember-prerender config/default.js [optional process num]
 
 If you're invoking ember-prerender directly from the cloned repository,
 you can do this instead:
 
-    $ export CONFIG="./your-app-config.json"
+    $ export CONFIG="./your-app-config.js"
     $ export PROCESS_NUM=0
     $ node server.js
 
@@ -52,49 +52,48 @@ Test the prerender service by visiting it in your browser at
 
 ## Configuration Options ##
 
-Configuration files should be in JSON format, the following is an
-annotated version of a complete config file. (Note: The comments
-are not valid JSON.)
+Configuration files should be in javascript module format, the following is an
+annotated version of a complete config file.
 
 ```
-{
+module.exports = {
   // The port that prerender runs on (Phantom will use additional ports)
-  "port": 3000,
+  port: 3000,
 
   // Process number (starting from 0) which is added to the above port, used when running multiple instances
-  "processNum": 0,
+  processNum: 0,
 
   // Can be: jsdom, phantom
-  "engine": "phantom",
+  engine: "phantom",
 
   // Milliseconds to wait after the page load but before getting the HTML
-  "contentReadyDelay": 0,
+  contentReadyDelay: 0,
 
   // Maximum milliseconds to wait before the initial app load times out
-  "initializeTimeout": 25000,
+  initializeTimeout: 25000,
 
   // Maximum milliseconds to wait before a render job times out
-  "renderTimeout": 15000,
+  renderTimeout: 15000,
 
   // Maximum number of requests a worker can handle before it's restarted
-  "maxRequestsPerRenderer": 200,
+  maxRequestsPerRenderer: 200,
 
   // Maximum number of rendering requests to queue up before dropping new ones
-  "maxQueueSize": 1000,
+  maxQueueSize: 1000,
 
   // Your app's base URL
-  "baseUrl": "http://localhost/",
+  baseUrl: "http://localhost/",
 
   // Main application page
-  "applicationPage": "index.html",
+  applicationPage: "index.html",
 
   // Serve static files
-  "serveFiles": true,
+  serveFiles: true,
 
   // List of static file patterns
-  "filesMatch": "/\\\.(?:css|js|jpg|png|gif|ico|svg|woff|ttf|swf|map)(?:\\\?|$)/",
+  filesMatch: "/\\\.(?:css|js|jpg|png|gif|ico|svg|woff|ttf|swf|map)(?:\\\?|$)/",
 
-  "logging": {
+  logging: {
     // Logging verbosity
     "level": "debug",
 
@@ -106,13 +105,14 @@ are not valid JSON.)
   },
 
   // Available plugins:
-  "plugins": [
+  plugins: [
     "removeScriptTags",
     "httpHeaders",
     //"prepareEmail",
     //"prettyPrintHtml",
     //"inMemoryHtmlCache",
     //"s3HtmlCache",
+    //require('./your-own-plugin.js')
   ]
 }
 ```
