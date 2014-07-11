@@ -6,7 +6,7 @@
   "author": "Brian Stanback",
   "repository": {
     "type": "git",
-    "url": "https://github.com/geometria-lab/ember-prerender"
+    "url": "https://github.com/zipfworks/ember-prerender"
   },
   "dependencies": {
     "request": ">= 2.0 < 3.0",
