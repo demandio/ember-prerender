@@ -31,6 +31,12 @@ described in this README).
 
 Install ember-prerender:
 
+From npm (https://www.npmjs.org/package/ember-prerender):
+
+    $ sudo npm install -g ember-prerender
+
+Or, if you prefer to get it directly from github:
+
     $ sudo npm install -g zipfworks/ember-prerender
 
 Copy or edit the default configuration file (in /config/) to match your
