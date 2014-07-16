@@ -3,20 +3,24 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Ember-Prerender Example</title>
+    <title>Example</title>
+    <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     {{BASE_TAG}}
 
+    <link rel="stylesheet" href="assets/vendor.css">
     <link rel="stylesheet" href="assets/example.css">
   </head>
   <body>
     <script>
-      window.ENV = {{ENV}};
+      window.ExampleENV = {{ENV}};
+      window.EmberENV = window.ExampleENV.EmberENV;
     </script>
+    <script src="assets/vendor.js"></script>
     <script src="assets/example.js"></script>
     <script>
-      window.App = require('example/app')['default'].create(ENV.APP);
+      window.Example = require('example/app')['default'].create(ExampleENV.APP);
     </script>
   </body>
 </html>

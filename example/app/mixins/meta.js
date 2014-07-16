@@ -1,3 +1,5 @@
+import Ember from 'ember';
+
 export default Ember.Mixin.create({
   actions: {
     didTransition: function() {
@@ -6,7 +8,7 @@ export default Ember.Mixin.create({
       for (var i = 0; i < currentHandlerInfos.length; i++) {
         var controller = this.controllerFor(currentHandlerInfos[i].name);
         if (controller.metaFields) {
-          $.extend(fields, controller.metaFields());
+          Ember.$.extend(fields, controller.metaFields());
         }
       }
       this._addMetaTags(fields);
@@ -38,11 +40,11 @@ export default Ember.Mixin.create({
       });
     }
 
-    document.title = fields.title || window.App.META_TITLE_DEFAULT;
+    document.title = fields.title || ExampleENV.APP.DEFAULT_PAGE_TITLE;
 
-    $('#meta-start').nextUntil('#meta-end').remove();
+    Ember.$('#meta-start').nextUntil('#meta-end').remove();
     for (var i = 0; i < tags.length; i++) {
-      $('#meta-start').after($('<meta>', tags[i]));
+      Ember.$('#meta-start').after(Ember.$('<meta>', tags[i]));
     }
   }
 });

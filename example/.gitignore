@@ -7,14 +7,11 @@
 # dependencies
 /node_modules
 /vendor/*
-!/vendor/_loader.js
 
 # misc
 /.sass-cache
 /connect.lock
-/libpeerconnection.log
-.DS_Store
-Thumbs.db
 /coverage/*
+/libpeerconnection.log
 npm-debug.log
 testem.log

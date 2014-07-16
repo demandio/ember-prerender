@@ -1,17 +1,19 @@
+import Ember from 'ember';
+
 export default {
   name: 'meta',
-  initialize: function(controller, application) {
-    application.META_TITLE_DEFAULT = document.title;
-    $('head').append(
-      $('<script>', {
+  initialize: function() {
+    ExampleENV.APP.DEFAULT_PAGE_TITLE = document.title;
+
+    Ember.$('head').append(
+      Ember.$('<script>', {
         id: 'meta-start',
         type: 'text/x-placeholder'
       }),
-      $('<script>', {
+      Ember.$('<script>', {
         id: 'meta-end',
         type: 'text/x-placeholder'
       })
     );
   }
 };
-

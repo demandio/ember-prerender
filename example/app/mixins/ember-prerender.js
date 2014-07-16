@@ -1,3 +1,5 @@
+import Ember from 'ember';
+
 export default Ember.Mixin.create({
   willComplete: function() {
     Ember.RSVP.resolve();
@@ -13,7 +15,8 @@ export default Ember.Mixin.create({
           promises.push(currentHandlerInfos[i].handler.willComplete());
         }
       }
-      Ember.RSVP.all(promises).then(window.App.prerenderReady);
+
+      Ember.RSVP.all(promises).then(window.prerenderReady);
     }
   }
 });

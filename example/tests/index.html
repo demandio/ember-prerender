@@ -9,6 +9,7 @@
 
     {{BASE_TAG}}
 
+    <link rel="stylesheet" href="assets/vendor.css">
     <link rel="stylesheet" href="assets/example.css">
     <link rel="stylesheet" href="assets/qunit.css">
     <style>
@@ -33,14 +34,17 @@
     <div id="qunit-fixture"></div>
 
     <script>
-      window.ENV = {{ENV}};
+      window.ExampleENV = {{ENV}};
+      window.EmberENV = window.ExampleENV.EmberENV;
     </script>
     <script src="assets/qunit.js"></script>
+    <script src="assets/qunit-notifications.js"></script>
+    <script src="assets/vendor.js"></script>
     <script src="assets/example.js"></script>
     <script src="testem.js"></script>
     <script>
       require('example/tests/test-helper');
-      require('example/tests/test-loader');
     </script>
+    <script src="assets/test-loader.js"></script>
   </body>
 </html>
