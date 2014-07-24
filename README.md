@@ -25,7 +25,9 @@ In addition, you have the flexibility of using JSDOM instead of PhantomJS.
 Although the current focus of this project is to support Ember apps, the code is
 completely decoupled from Ember.js and can be used with Angular, Backbone, Knockout,
 jQuery, etc. (assuming your app implements the XPushState and XContentReady events
-described in this README).
+described in this README). In the future, this project may be more
+closely coupled with [HTMLBars](https://github.com/tildeio/htmlbars) /
+[Bound Templates](https://github.com/tildeio/bound-templates.js).
 
 ## Usage ##
 
@@ -83,6 +85,16 @@ module.exports = {
 
   // Maximum number of requests a worker can handle before it's restarted
   maxRequestsPerRenderer: 200,
+
+  // Whether to restart a renderer gracefully or exit the process after reaching maxRequestsPerRenderer
+  // Note: Exiting the process and having something like supervisor automatically restart it can
+  //       help avoid memory leaks which seems to affect the JSDOM engine
+  //       This could be investigated with: https://github.com/lloyd/node-memwatch
+  exitAfterMaxRequests: false,
+
+  // If exitAfterMaxRequets is true, setting this to true will cause all
+  // queued requests to be rendered before the process is terminated
+  gracefulExit: true,
 
   // Maximum number of rendering requests to queue up before dropping new ones
   maxQueueSize: 1000,
