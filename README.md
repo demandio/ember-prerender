@@ -15,7 +15,8 @@ data formats.
 The project makes use of [Node.js](http://nodejs.org/) and
 [JSDOM](https://github.com/tmpvar/jsdom), [PhantomJS](http://phantomjs.org/), 
 or [WebDriverJS](https://code.google.com/p/selenium/wiki/WebDriverJs)
-based on your requirements and preference.
+based on your requirements and preference. Note: WebDriver support is still
+experimental and mostly useful for debugging.
 
 The concept and plugin code is based loosely off of
 the [Prerender Service](https://github.com/collectiveip/prerender) by Todd Hooper.
