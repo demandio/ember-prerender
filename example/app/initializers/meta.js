@@ -1,9 +1,10 @@
 import Ember from 'ember';
+import ENV from 'example/config/environment';
 
 export default {
   name: 'meta',
   initialize: function() {
-    ExampleENV.APP.DEFAULT_PAGE_TITLE = document.title;
+    ENV.APP.DEFAULT_PAGE_TITLE = document.title;
 
     Ember.$('head').append(
       Ember.$('<script>', {

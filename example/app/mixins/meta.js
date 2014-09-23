@@ -1,4 +1,5 @@
 import Ember from 'ember';
+import ENV from 'example/config/environment';
 
 export default Ember.Mixin.create({
   actions: {
@@ -40,7 +41,7 @@ export default Ember.Mixin.create({
       });
     }
 
-    document.title = fields.title || ExampleENV.APP.DEFAULT_PAGE_TITLE;
+    document.title = fields.title || ENV.APP.DEFAULT_PAGE_TITLE;
 
     Ember.$('#meta-start').nextUntil('#meta-end').remove();
     for (var i = 0; i < tags.length; i++) {

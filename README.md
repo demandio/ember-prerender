@@ -190,7 +190,7 @@ document.addEventListener('XPushState', (event) ->
 , false)
 ```
 
-In your routes (tested with Ember 1.4, 1.5, and 1.6):
+In your routes (tested with Ember 1.4, 1.5, 1.6, and 1.7):
 ```CoffeeScript
   # Promise hook for when a page has loaded, can be overridden in subclasses
   willComplete: -> Em.RSVP.resolve()
