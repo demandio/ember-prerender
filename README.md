@@ -101,17 +101,17 @@ module.exports = {
   // Maximum number of rendering requests to queue up before dropping new ones
   maxQueueSize: 1000,
 
-  // Your app's base URL
-  baseUrl: "http://localhost/",
-
-  // Main application page
-  applicationPage: "index.html",
+  // Your app's default URL
+  appUrl: "http://localhost/",
 
   // Serve static files
   serveFiles: true,
 
   // List of static file patterns
   filesMatch: "/\\\.(?:css|js|jpg|png|gif|ico|svg|woff|ttf|swf|map)(?:\\\?|$)/",
+
+  // Regular expression containing assets you don't want to download or process
+  ignoreAssets: /google-analytics\.com|typekit\.com|\.css(?:\?:$)/,
 
   logging: {
     // Logging verbosity

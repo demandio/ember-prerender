@@ -16,6 +16,7 @@ var config = {
   "appUrl": "http://localhost:4200/",
   "serveFiles": true,
   "filesMatch": "/\\.(?:css|js|jpg|png|gif|ico|svg|woff|ttf|swf|map)(?:\\?|$)/i",
+  "ignoreAssets": /google-analytics\.com|typekit\.com|\.css(?:\?:$)/,
   "logging": {
     "level": "debug",
     "timestamp": true,
