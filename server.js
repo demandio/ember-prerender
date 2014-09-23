@@ -13,11 +13,10 @@ var config = {
   "exitAfterMaxRequests": false,
   "gracefulExit": true,
   "maxQueueSize": 50,
-  "baseUrl": "http://localhost:4200/",
-  "initializeUrl": "",
-  "applicationPage": "index.html",
+  "appUrl": "http://localhost:4200/",
   "serveFiles": true,
   "filesMatch": "/\\.(?:css|js|jpg|png|gif|ico|svg|woff|ttf|swf|map)(?:\\?|$)/i",
+  "ignoreAssets": /google-analytics\.com|typekit\.com|\.css(?:\?:$)/,
   "logging": {
     "level": "debug",
     "timestamp": true,

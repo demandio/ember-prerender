@@ -12,15 +12,17 @@ for SEO purposes, such as general indexing of page content, Facebook's Link Prev
 Pinterest's Rich Pins, Twitter Cards, Google's Rich Snippets, and other structured
 data formats.
 
-The project makes use of [Node.js](http://nodejs.org/) and either
-[PhantomJS](http://phantomjs.org/) or [JSDOM](https://github.com/tmpvar/jsdom)
-based on your preference.
+The project makes use of [Node.js](http://nodejs.org/) and
+[JSDOM](https://github.com/tmpvar/jsdom), [PhantomJS](http://phantomjs.org/), 
+or [WebDriverJS](https://code.google.com/p/selenium/wiki/WebDriverJs)
+based on your requirements and preference. Note: WebDriver support is still
+experimental and mostly useful for debugging.
 
 The concept and plugin code is based loosely off of
 the [Prerender Service](https://github.com/collectiveip/prerender) by Todd Hooper.
 Unlike the Prerender Service, the goal of ember-prerender is to reduce rendering times
 by utilizing a long-lived instance of an app instead of reloading it on every request.
-In addition, you have the flexibility of using JSDOM instead of PhantomJS.
+In addition, you have the flexibility of using JSDOM or WebDriverJs instead of PhantomJS.
 
 Although the current focus of this project is to support Ember apps, the code is
 completely decoupled from Ember.js and can be used with Angular, Backbone, Knockout,
@@ -71,7 +73,7 @@ module.exports = {
   // Process number (starting from 0) which is added to the above port, used when running multiple instances
   processNum: 0,
 
-  // Can be: jsdom, phantom
+  // Can be: jsdom, phantom, or webdriver
   engine: "phantom",
 
   // Milliseconds to wait after the page load but before getting the HTML
@@ -99,17 +101,17 @@ module.exports = {
   // Maximum number of rendering requests to queue up before dropping new ones
   maxQueueSize: 1000,
 
-  // Your app's base URL
-  baseUrl: "http://localhost/",
-
-  // Main application page
-  applicationPage: "index.html",
+  // Your app's default URL
+  appUrl: "http://localhost/",
 
   // Serve static files
   serveFiles: true,
 
   // List of static file patterns
   filesMatch: "/\\\.(?:css|js|jpg|png|gif|ico|svg|woff|ttf|swf|map)(?:\\\?|$)/",
+
+  // Regular expression containing assets you don't want to download or process
+  ignoreAssets: /google-analytics\.com|typekit\.com|\.css(?:\?:$)/,
 
   logging: {
     // Logging verbosity
