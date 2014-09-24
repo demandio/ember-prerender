@@ -15,7 +15,7 @@ var config = {
   "maxQueueSize": 50,
   "appUrl": "http://localhost:4200/",
   "serveFiles": true,
-  "filesMatch": "/\\.(?:css|js|jpg|png|gif|ico|svg|woff|ttf|swf|map)(?:\\?|$)/i",
+  "filesMatch": /\.(?:css|js|jpg|png|gif|ico|svg|woff|ttf|swf|map)(?:\?|$)/i,
   "ignoreAssets": /google-analytics\.com|typekit\.com|\.css(?:\?|$)/,
   "logging": {
     "level": "debug",
@@ -35,15 +35,6 @@ if (process.env.CONFIG) {
 
 if (process.env.PROCESS_NUM) {
   config.processNum = parseInt(process.env.PROCESS_NUM, 10);
-}
-
-if (config.filesMatch) {
-  var match = config.filesMatch.match(new RegExp("^/(.*?)/(g?i?m?y?)$"));
-  if (match) {
-    config.filesMatch = new RegExp(match[1], match[2]);
-  } else {
-    config.filesMatch = new RegExp("^$");
-  }
 }
 
 var server = prerender(config);

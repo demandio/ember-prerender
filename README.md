@@ -107,8 +107,8 @@ module.exports = {
   // Serve static files
   serveFiles: true,
 
-  // List of static file patterns
-  filesMatch: "/\\\.(?:css|js|jpg|png|gif|ico|svg|woff|ttf|swf|map)(?:\\\?|$)/",
+  // Regular expression of static file patterns
+  filesMatch: /\.(?:css|js|jpg|png|gif|ico|svg|woff|ttf|swf|map)(?:\?|$)/,
 
   // Regular expression containing assets you don't want to download or process
   ignoreAssets: /google-analytics\.com|typekit\.com|\.css(?:\?:$)/,
