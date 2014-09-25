@@ -15,6 +15,7 @@ var config = {
   "maxQueueSize": 50,
   "appUrl": "http://localhost:4200/",
   "serveFiles": true,
+  "serveFilesLog": true,
   "filesMatch": /\.(?:css|js|jpg|png|gif|ico|svg|woff|ttf|swf|map)(?:\?|$)/i,
   "ignoreAssets": /google-analytics\.com|typekit\.com|\.css(?:\?|$)/,
   "logging": {

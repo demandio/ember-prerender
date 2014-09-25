@@ -107,6 +107,9 @@ module.exports = {
   // Serve static files
   serveFiles: true,
 
+  // Log requests for static files
+  serveFilesLog: true,
+
   // Regular expression of static file patterns
   filesMatch: /\.(?:css|js|jpg|png|gif|ico|svg|woff|ttf|swf|map)(?:\?|$)/,
 
