@@ -114,7 +114,7 @@ module.exports = {
   filesMatch: /\.(?:css|js|jpg|png|gif|ico|svg|woff|ttf|swf|map)(?:\?|$)/,
 
   // Regular expression containing assets you don't want to download or process
-  ignoreAssets: /google-analytics\.com|typekit\.com|\.css(?:\?:$)/,
+  ignoreAssets: /google-analytics\.com|fonts\.googleapis\.com|typekit\.com|platform\.twitter\.com|connect\.facebook\.net|apis\.google\.com|\.css(?:\?|$)/,
 
   logging: {
     // Logging verbosity

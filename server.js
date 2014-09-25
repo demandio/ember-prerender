@@ -3,27 +3,27 @@ var _ = require('lodash');
 
 // Default configuration values:
 var config = {
-  "port": 3000,
-  "processNum": 0,
-  "engine": "phantom",
-  "contentReadyDelay": 0,
-  "initializeTimeout": 25000,
-  "renderTimeout": 15000,
-  "maxRequestsPerRenderer": 100,
-  "exitAfterMaxRequests": false,
-  "gracefulExit": true,
-  "maxQueueSize": 50,
-  "appUrl": "http://localhost:4200/",
-  "serveFiles": true,
-  "serveFilesLog": true,
-  "filesMatch": /\.(?:css|js|jpg|png|gif|ico|svg|woff|ttf|swf|map)(?:\?|$)/i,
-  "ignoreAssets": /google-analytics\.com|typekit\.com|\.css(?:\?|$)/,
-  "logging": {
-    "level": "debug",
-    "timestamp": true,
-    "format": true
+  port: 3000,
+  processNum: 0,
+  engine: "phantom",
+  contentReadyDelay: 0,
+  initializeTimeout: 25000,
+  renderTimeout: 15000,
+  maxRequestsPerRenderer: 100,
+  exitAfterMaxRequests: false,
+  gracefulExit: true,
+  maxQueueSize: 50,
+  appUrl: "http://localhost:4200/",
+  serveFiles: true,
+  serveFilesLog: true,
+  filesMatch: /\.(?:css|js|jpg|png|gif|ico|svg|woff|ttf|swf|map)(?:\?|$)/i,
+  ignoreAssets: /google-analytics\.com|fonts\.googleapis\.com|typekit\.com|platform\.twitter\.com|connect\.facebook\.net|apis\.google\.com|\.css(?:\?|$)/,
+  logging: {
+    level: "debug",
+    timestamp: true,
+    format: true
   },
-  "plugins": [
+  plugins: [
     "removeScriptTags",
     "httpHeaders"
   ]
