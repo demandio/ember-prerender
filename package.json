@@ -2,7 +2,7 @@
   "name": "ember-prerender",
   "summary": "Static HTML rendering for Ember.js",
   "description": "Render static HTML from your Ember.js web apps on the server for SEO and other purposes.",
-  "version": "2.5.0",
+  "version": "2.5.0-pre.1",
   "author": "Brian Stanback",
   "repository": {
     "type": "git",
