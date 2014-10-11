@@ -291,10 +291,10 @@ server {
     proxy_next_upstream error timeout;
  
     set $prerender 0;
-    if ($http_user_agent ~* "googlebot|yahoo|bingbot|baiduspider|yandex|yeti|yodaobot|gigabot|ia_archiver|facebookexternalhit|twitterbot|developers\.google\.com") {
+    if ($http_user_agent ~* "bingbot|baiduspider|yandex|yeti|yodaobot|gigabot|ia_archiver|facebookexternalhit|twitterbot|pinterest|tumblr|bingpreview|shopwiki|duckduckbot|rogerbot|slackbot|adsbot-google|linkedinbot|embedly|quora link preview|showyoubot|outbrain|mediapartners-google|adsbot-google|developers\.google\.com/\+/") {
       set $prerender 1;
     }
-    if ($args ~ "_escaped_fragment_|prerender=1") {
+    if ($args ~ "_escaped_fragment_=|prerender=1") {
       set $prerender 1;
     }
     if ($http_user_agent ~ "Prerender") {
@@ -311,9 +311,11 @@ server {
 }
 ```
 
-Google is now rendering Javascript pages, so you may want to remove
-Googlebot from the list of user agents (after testing your pages in
-Webmaster Tools).
+Google is now rendering Javascript pages, so the Googlebot user agent is
+no longer in the list of bots. Although Google is executing Javascript,
+it's still best to inform them about your ember-prerender HTML
+snapshots by adding the "fragment" meta tag. You can find more info [here](
+https://developers.google.com/webmasters/ajax-crawling/docs/getting-started).
 
 ## License ##
 
