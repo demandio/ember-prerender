@@ -164,7 +164,7 @@ to let ember-prerender know that the page is ready.
 
 To find out more about implmenting the events, the best place to start is
 by looking at the initializers and mixins in the example project of this
-repo.
+repository.
 
 ### Example Configuration (CoffeeScript) ###
 
@@ -178,19 +178,18 @@ if document.createEvent
   window.prerenderTransitionEvent = document.createEvent('Event')
   window.prerenderTransitionEvent.initEvent('XPushState', false, false)
 
-App.prerenderReady = ->
-  console.log('PRERENDER READY')
-  if prerenderEvent
-    document.dispatchEvent(prerenderEvent)
+  App.prerenderReady = ->
+    console.log('PRERENDER READY')
+    document.dispatchEvent(window.prerenderReadyEvent)
 
-document.addEventListener('XPushState', (event) ->
-  router = App.__container__.lookup 'router:main'
-  Ember.run ->
-    router.replaceWith(event.url).then (route) ->
-      if route.handlerInfos
-        // The requested route was already loaded
-        App.prerenderReady()
-, false)
+  document.addEventListener('XPushState', (event) ->
+    router = App.__container__.lookup 'router:main'
+    Ember.run ->
+      router.replaceWith(event.url).then (route) ->
+        if route.handlerInfos
+          // The requested route was already loaded
+          App.prerenderReady()
+  , false)
 ```
 
 In your routes (tested with Ember 1.4, 1.5, 1.6, and 1.7):
@@ -218,16 +217,33 @@ To detect whether your app is being loaded in a browser or through prerender,
 you can check the window.isPrerender variable which is set to true by
 ember-prerender.
 
-## Reloading ##
+## Search Engine Support ##
+
+Google is now executing Javascript pages directly, however, you may wish
+to inform Google about ember-prerender's HTML snapshots by adding the
+"fragment" meta tag. For push state apps, the tag looks like this:
+
+```<meta name="fragment" content="!">```
+
+Please visit Google's [AJAX Crawling documentation](
+https://developers.google.com/webmasters/ajax-crawling/docs/getting-started)
+for more information.
+
+Bing and Yandex also support the "fragment" meta tag. In addition, most
+of Google's bots support the tag, including Googlebot, Googlebot Mobile,
+AdsBot-Google and Googlebot-Image.
+
+## Running ##
+
+You may manually start ember-prerender or preferably use
+[supervisord](http://supervisord.org/), forever, foreman, upstart, etc to
+start, stop, restart, and monitor ember-prerender.
 
 If your web application changes, you can send a SIGUSR2 signal to the
 master prerender process to cause the page to be reloaded.
 
-## Supervisor ##
-
-You may use [supervisord](http://supervisord.org/), forever, foreman, upstart, etc to
-start, stop, restart, and monitor ember-prerender. The following is an example
-supervisord configuration file which should be placed in /etc/supervisor/conf.d/:
+The following is an example supervisord configuration file which should be
+placed in /etc/supervisor/conf.d/:
 
 ```
 [program:prerender-yourappname]
@@ -251,7 +267,7 @@ while serving Javascript for compatible browsers. One way to do this
 is by setting up a reverse proxy, such as nginx, haproxy,
 apache, squid, etc.
 
-### Nginx Reverse Proxy Setup ###
+### Nginx Reverse Proxy + Load Balancer Setup ###
 
 Example configuration (you can add additional instances to the upstream
 backend for load balancing):
@@ -259,6 +275,7 @@ backend for load balancing):
 ```Nginx
 upstream prerender-yourappname-backend {
   #ip_hash;
+  #least_conn;
   server localhost:3000;
   #server localhost:3001;
   #server localhost:3002;
@@ -310,16 +327,6 @@ server {
   }
 }
 ```
-
-Google is now rendering Javascript pages, so the Googlebot user agent is
-no longer in the list of bots. Although Google is executing Javascript,
-it's still best to inform them about your ember-prerender HTML
-snapshots by adding the "fragment" meta tag. You can find more info [here](
-https://developers.google.com/webmasters/ajax-crawling/docs/getting-started).
-Most of Google's bots support the tag, including Googlebot, Googlebot
-Mobile, AdsBot-Google and Googlebot-Image. Bing and Yandex also support
-the "fragment" meta tag.
-
 
 ## License ##
 
