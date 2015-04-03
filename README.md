@@ -111,7 +111,7 @@ module.exports = {
   serveFilesLog: true,
 
   // Regular expression of static file patterns
-  filesMatch: /\.(?:css|js|jpg|png|gif|ico|svg|woff|ttf|swf|map)(?:\?|$)/,
+  filesMatch: /\.(?:css|js|jpg|png|gif|ico|svg|woff|woff2|ttf|swf|map)(?:\?|$)/,
 
   // Regular expression containing assets you don't want to download or process
   ignoreAssets: /google-analytics\.com|fonts\.googleapis\.com|typekit\.com|platform\.twitter\.com|connect\.facebook\.net|apis\.google\.com|\.css(?:\?|$)/,
@@ -133,6 +133,7 @@ module.exports = {
     "httpHeaders",
     //"prepareEmail",
     //"prettyPrintHtml",
+    //"minifyHtml",
     //"inMemoryHtmlCache",
     //"s3HtmlCache",
     //require('./your-own-plugin.js')
