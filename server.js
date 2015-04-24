@@ -34,6 +34,10 @@ if (process.env.CONFIG) {
   _.merge(config, userConfig);
 }
 
+if (process.env.PORT) {
+  config.port = process.env.PORT;
+}
+
 if (process.env.PROCESS_NUM) {
   config.processNum = parseInt(process.env.PROCESS_NUM, 10);
 }
