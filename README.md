@@ -1,4 +1,4 @@
-# Ember Prerender #
+# Unmaintained: Ember Prerender #
 
 [![Code Climate](https://codeclimate.com/github/zipfworks/ember-prerender.png)](https://codeclimate.com/github/zipfworks/ember-prerender)
 [![Dependency Status](https://gemnasium.com/zipfworks/ember-prerender.svg)](https://gemnasium.com/zipfworks/ember-prerender)
